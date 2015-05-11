@@ -51,3 +51,40 @@ ERROR - 2015-05-11 11:21:48 --> 404 Page Not Found: /index
 ERROR - 2015-05-11 11:21:48 --> 404 Page Not Found: /index
 ERROR - 2015-05-11 11:21:48 --> 404 Page Not Found: /index
 ERROR - 2015-05-11 11:21:48 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:31:44 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'order' D:\xampp\htdocs\truyen_word\system\database\drivers\mysqli\mysqli_driver.php 135
+ERROR - 2015-05-11 15:31:44 --> Unable to connect to the database
+ERROR - 2015-05-11 15:31:50 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'order' D:\xampp\htdocs\truyen_word\system\database\drivers\mysqli\mysqli_driver.php 135
+ERROR - 2015-05-11 15:31:50 --> Unable to connect to the database
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:33:10 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:44:07 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:44:32 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:44:38 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:44:46 --> 404 Page Not Found: ../modules/stories/controllers//index
+ERROR - 2015-05-11 15:45:27 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:45:27 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:46:13 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:46:13 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:47:22 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:47:22 --> 404 Page Not Found: /index
+ERROR - 2015-05-11 15:47:59 --> 404 Page Not Found: ../modules/stories/controllers/Stories/details
+ERROR - 2015-05-11 15:48:07 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\detail.tpl"  on line 240 "</div> <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>"  - Unexpected ":", expected one of: "}" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 237
+ERROR - 2015-05-11 15:48:47 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\detail.tpl"  on line 855 "FB.init({appId: '436858599773584', status: true, cookie: true, xfbml: true});"  - Unexpected ": ", expected one of: "}" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 852
+ERROR - 2015-05-11 15:50:16 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public
+ERROR - 2015-05-11 15:50:16 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public
+ERROR - 2015-05-11 15:50:16 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public
+ERROR - 2015-05-11 15:55:31 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 178 "FB.init({appId: '436858599773584', status: true, cookie: true, xfbml: true});"  - Unexpected ": ", expected one of: "}" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 175
+ERROR - 2015-05-11 15:56:03 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 181 ".fb_iframe_widget iframe[style]  {width: 100% !important;}</style>"  - Unexpected ": ", expected one of: "}" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 178
+ERROR - 2015-05-11 15:56:23 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 751 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 748
+ERROR - 2015-05-11 15:57:50 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 752 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 99
+ERROR - 2015-05-11 15:57:52 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 752 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 99
+ERROR - 2015-05-11 15:59:00 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 709 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 99
+ERROR - 2015-05-11 15:59:05 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 709 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 99
+ERROR - 2015-05-11 15:59:05 --> Severity: error --> Exception: Syntax error in template "D:\xampp\htdocs\truyen_word\application\modules\stories\views\chapter.tpl"  on line 709 "var test = $('#report_success').slideDown('fast').delay(1000).slideUp('fast', function(){$('#modal_truyen_report').modal('hide');});"  - Unexpected "(", expected one of: "{" , "identifier" D:\xampp\htdocs\truyen_word\application\third_party\Smarty\sysplugins\smarty_internal_templatecompilerbase.php 99
+ERROR - 2015-05-11 15:59:59 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public
+ERROR - 2015-05-11 15:59:59 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public
+ERROR - 2015-05-11 15:59:59 --> 404 Page Not Found: ../modules/stories/controllers/Stories/public

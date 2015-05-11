@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Test extends MY_Controller {
+class Stories extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
@@ -26,6 +26,16 @@ class Test extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->parser->parse("login1.tpl", $this->data);
+		$this->parser->parse("home.tpl", $this->data);
+	}
+	
+	public function detail()
+	{
+		$this->parser->parse("detail.tpl", $this->data);
+	}
+	
+	public function chapter()
+	{
+		$this->parser->parse("chapter.tpl", $this->data);
 	}
 }
