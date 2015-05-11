@@ -1,0 +1,208 @@
+/* CSS Document */
+body{background: url("../img/gp-body.gif") left top; color:#000;}
+a{ text-decoration:none; color:#e74c3c}
+a:hover { text-decoration:none}
+.wrapMain{ max-width:1100px; margin:auto;}
+.box{ background-color:#fff; border:1px solid #CCC;}
+.mn_nav{ list-style:none;  margin-left:0px;}
+.mn_nav li{ float:left; margin:0px; padding:0px;}
+.mn_nav li span,.mn_nav li a{ padding-left:10px ; padding-right:10px; padding-bottom:4px; text-decoration:none; color:#000;   font-size:12px;opacity:0.8;}
+.mn_nav li .btn .glyphicon{ color:#FFF}
+.mn_nav li span{ font-weight:bold}
+.mn_nav li{ float:left; margin:0px; padding:0px; display:inline}
+.mn_nav li .btn{ margin:0px; padding:5px }
+.mn_nav li a.active{ font-weight:500;color:#c0392b ; background-color:#FFF; padding-top:13px; padding-bottom:21px; font-size:14px}
+.mn_nav li a:hover{ opacity:1; color: #fff; opacity:1; color:#c0392b; font-size:14px}
+.panel{ color:#000;}
+.panel .pcontent{ padding:10px}
+/* Menu tab customize */
+.mn_tab span{ padding-left:10px ; padding-right:10px; line-height:40px;  text-decoration:none; color:#000;   font-size:12px;opacity:0.8; font-weight:bold}
+.mn_tab {  border-bottom: none ; padding:0px; margin:0px}
+.mn_tab > li {  float: left; margin-bottom:-15px; margin-top:-5px}
+.mn_tab > li > a { padding-left:10px ; padding-right:10px; padding-bottom:4px; text-decoration:none; color:#000;   font-size:12px;opacity:0.8; font-weight:normal}
+
+.mn_tab > li > a:hover {
+    font-weight:500;color:#c0392b ; background-color:#FFF; font-size:14px; padding:6px; padding-bottom:10px; border-radius:3px;
+}
+
+.mn_tab > li.active > a,
+.mn_tab > li.active > a:hover,
+.mn_tab > li.active > a:focus {
+  font-weight:500;color:#000 ; background-color:#fff; font-size:14px; padding:6px; padding-bottom:10px; border-radius:3px; border-top:2px solid #F00
+}
+.mn_tab_content{ padding:0px; margin:0px}
+/* End menu tab customize */
+/* Box truyen item */
+.item_truyen_box{ }
+.item_truyen_box .chuong_info{ display:none}
+.item_truyen_box .title a{color:#2793e6;}
+.item_truyen_box .chuong_name {color:#999; font-size:11px}
+.item_truyen_box .chuong_name a{color:#2980b9; font-size:11px}
+.item_truyen_box .img{ position:relative;}
+.item_truyen_box .img img{ width:130px; height:200px; margin:auto; margin-bottom:10px}
+.item_truyen_box .stat_info .author{color:#27ae60; font-size:11px ;margin-right:10px;}
+.item_truyen_box .stat_info .view{ font-size:11px;margin-right:10px; color:#999}
+.item_truyen_box .stat_info .time{ font-size:11px; color:#999;}
+.item_truyen_box  .stat_info .tags{display:block; }
+.item_truyen_box  .stat_info .tags a{ color:#2793e6; font-size:11px}
+.item_truyen_box  .stat_info .tags a:hover{ color: #2793e6;  text-decoration: underline}
+.item_truyen_box  .stat_info .tags i{ color:#999; font-size:11px}
+.item_truyen_box   .like{padding:5px; background-color:#f5f5f5; border-radius:3px; margin:5px; text-align:center; color:#999 }
+
+/* End box truyen item */
+
+/* Start box truyen detail */
+.item_truyen_detail a:hover{ opacity:0.8}
+.item_truyen_detail .name{color:#000;font-weight:normal; }
+.item_truyen_detail .table tbody > tr > td {border-top: none }
+.item_truyen_detail .author{color:#000; font-size:13px ;margin-right:0px; margin-bottom:10px; padding-left:5px}
+.item_truyen_detail .author span a{color:#fff;padding-left:10px; background-color:#e67e22; padding:5px}
+.item_truyen_detail .theloai{color:#000; font-size:12px; padding:5px}
+.item_truyen_detail .theloai a{padding:5px; background-color:#3498db; border-radius:3px; margin:5px; color:#fff;padding-left:10px}
+.item_truyen_detail .tinhtrang{color:#000; font-size:12px; padding:5px}
+.item_truyen_detail .tinhtrang span a{color:#fff;padding-left:10px; padding:5px; background-color:#16a085; }
+.item_truyen_detail .nguon span {color:#fff;padding-left:10px; padding:5px; background-color:#2c3e50; }
+.item_truyen_detail .view{color:#000; font-size:12px; padding:5px; margin-bottom:5px}
+.item_truyen_detail .view span{color:#fff; padding-left:10px}
+.item_truyen_detail .stat_info{color:#000; font-size:12px; padding:5px; margin-bottom:5px; margin-top:5px}
+.item_truyen_detail .stat_info .author span{ background-color:#2980b9; color:#fff; padding:5px}
+.item_truyen_detail .stat_info .time{color:#999; font-size:11px; }
+.item_truyen_detail .stat_info2{ font-size:12px; padding:5px; border-radius:3px; }
+.item_truyen_detail .stat_info2 .update span a{color:#fff;  padding-left:10px; padding-right:10px; background-color:#8e44ad ; padding:5px}
+.item_truyen_detail .stat_info2 .author {color:#999; font-size:12px; }
+.item_truyen_detail .stat_info2 .author span{color:#2980b9;  }
+.item_truyen_detail .stat_info2 .time {color:#999; font-size:12px; }
+.item_truyen_detail .stat_info2 .time span{color:#2980b9;  }
+.item_truyen_detail .tukhoa{ font-size:12px; padding-left:5px}
+.item_truyen_detail .tukhoa a{ color:#fff; padding:5px; background-color:#e74c3c}
+.item_truyen_detail .noidung{ padding:10px; line-height:25px; font-family:'Roboto Condensed', sans-serif;}
+.fanpage {padding:5px; background-color:#f5f5f5;margin:5px; color:#2980b9;padding-left:10px }
+.fanpage .title{ font-size:12px; padding:10px; color:#e74c3c}
+.fanpage .fb-like{ color:#FFF}
+.footable a{ color:#000}
+.footable a:visited{ color: #F60}
+.footable > tbody > tr > td {
+border-top: 1px solid #ddd;padding: 7px;text-align: left;border-left: none;}
+/* End of truyen detail */
+.truyen_update{ margin:0px; padding:0px; padding-top:10px}
+
+
+/* -- Video box item */
+.item_video_box{}
+.item_video_box .title a{ color:#2793e6;font-weight:bold}
+.item_video_box .author a{ color:#2793e6; font-size:11px}
+.item_video_box .tags { color:#999; font-size:11px}
+.item_video_box .tags a{ color:#2793e6; font-size:11px}
+.item_video_box .stat_info .view{ font-size:11px}
+.item_video_box .stat_info .time{ font-size:11px; color:#999}
+/* end of video item box */
+/* -- Video box item */
+.blog_box{ margin:0px; padding:0px; margin-top:10px}
+.box2{ background-color:#fafafa}
+.item_blog_box{ margin-bottom:5px; padding-bottom:10px; border-bottom:1px solid #f5f5f5}
+.item_blog_box .img{  margin-right:15px; text-align:center; margin-top:5px; margin-bottom:5px}
+.item_blog_box .img img{ max-height:150px; margin:auto}
+.item_blog_box .title a{ color:#000;font-family: 'Roboto Condensed', sans-serif; font-size:18px}
+.item_blog_box .stat_info{ margin:5px; padding-bottom:10px; }
+.item_blog_box .stat_info span{ padding-left:15px}
+.item_blog_box .stat_info .author a{ color:#2793e6; font-size:11px}
+.item_blog_box .stat_info .category { color:#999; font-size:11px}
+.item_blog_box .stat_info .category a{ color:#999; font-size:11px}
+.item_blog_box .stat_info .view{ font-size:11px}
+.item_blog_box .stat_info .time{ font-size:11px; color:#999}
+.item_blog_box .noidung{ font-family: 'Roboto Condensed', sans-serif; line-height:20px }
+.item_blog_box .textmore a{font-family: 'Noticia Text', Times, serif;font-size: 1.1em;font-weight: normal;font-style: italic;color: #33C;}
+/* end of video item box */
+
+
+/* Box the loai */
+.box_theloai_ul { list-style:none; margin:0px; padding:0px; margin-left:10px}
+.box_theloai_ul li{ float:left; padding:5px;  margin:5px }
+.box_theloai_ul li i{ font-size:12px; color:#999; padding-right:2px}
+.box_theloai_ul li a{ color: #000;}
+.box_theloai_ul li a:hover{ color: #d35400; font-weight:bold; opacity:1}
+/* Box the loai end */
+/* Box ul list  */
+.box_list { margin:0px; padding:0px; list-style:none; margin-left:10px};
+.box_list li{ margin:5px; border-bottom:1px solid #336 }
+.box_list li a{ color:#e74c3c ; width:100%; border-bottom:1px solid #f5f5f5; display:block}
+.box_list li a:hover{ color:#c0392b; text-decoration:none}
+/* box truyen view */
+.box_truyen_view{ padding:0px; margin:0px}
+/* End box truyen view */
+
+
+/* Box ul list */
+.box_news{ margin:0px; padding:0px}
+.box_news .list-group-item:first-child{ border-radius:0px; border-top:0px}
+.box_news .list-group-item:last-child{ border-radius:0px; border-bottom:0px}
+.box_news .list-group-item { border-left:0px; border-right:0px; }
+.box_news .view { font-size:11px; color:#c0392b}
+.box_news .sdes { font-size:13px; color:#999}
+.box_news .tieude{ color:#16a085;}
+.box_news .truyen_view_text{text-transform:capitalize;}
+.box_news .top_video_item img{ margin-bottom:10px}
+.box_news .top_video_item {color:#000; font-size:15px}
+.box_news .top_video_item  .chuong{color:#c0392b; font-size:13px}
+.box_news .top_video_item  .view{color:#999; font-size:10px}
+.box_news .top_video_item  .sdes{color:#999; font-size:13px}
+
+
+/* End box ul list */
+
+/* Chuong detail */
+	.chuong_detail_head .name a{ color:#06C; font-size:16px; font-weight:bold}
+	.chuong_detail_head .tinhtrang{ color:#000; font-size:15px;}
+	.chuong_detail_head .capnhat{ color:#000; font-size:13px;}
+	.chuong_detail_head .capnhat a{ color:#06C; font-size:14px; font-weight:bold}
+	.chuong_info { font-size:15px; color:#999}
+	.chuong_info  span{ color:#e74c3c ; padding:5px; font-weight:bold}
+	.chuong_noidung { line-height:25px; font-size:16px}
+/* End chuong detail */
+/* Item blog detail */
+	.item_blog_detail .head_info .moreinfo{ color:#000; font-size:12px; background-color:#f5f5f5;  
+	border-top: 1px solid #eee;border-bottom: 1px solid #eee;margin: 0px 0px;padding: 10px;background-color: #fafafa;margin-bottom: 10px;margin-top: 3px;}
+	.item_blog_detail .head_info h1{color: #000;font-family: 'Roboto Condensed', sans-serif;font-size: 18px; padding:20px}
+	.item_blog_detail .detail_description{text-align: left;padding: 4px;font-family: 'Noticia Text', Times, serif;font-size: 1.1em;font-weight: normal;font-style: italic;}	
+	.item_blog_detail .moreinfo .view_user a{ color:#000}	
+	.item_blog_detail .moreinfo .view_user a:hover{ color:#096}	
+/* End Item blog detail */
+/* Blog related */
+ .blog_related .head{ padding:3px; background:#2980b9; color:#fff;font-family: 'Roboto Condensed', sans-serif;}
+ .blog_related .head a{ padding:3px; background:#2980b9; color:#fff;font-family: 'Roboto Condensed', sans-serif;}
+  .blog_related .head a:hover{ opacity:0.7}
+  /* End Blog related */
+  /* Truyen mobile list */
+   .truyen_mobi_list .mobi_item { margin:0px; padding:3px; border-bottom:none}
+   .truyen_mobi_list .img{ width:60px; margin-right:20px}
+   .truyen_mobi_list a{ color:#000}
+   .truyen_mobi_list .title a{ color:#000;  font-family: 'Roboto Condensed', sans-serif;}
+   .truyen_mobi_list .chuong_name a{ color: #999; font-size:13px}
+   .truyen_mobi_list .chuong_name { color: #999; font-size:13px}
+   .truyen_mobi_list .tags { color:#e67e22}
+   .truyen_mobi_list .mobi_item0{}
+   .truyen_mobi_list .tags a{ color: #f39c12; font-size:12px}
+   .truyen_mobi_list .stat_info { padding-top:3px}
+  /* end truyen mobile list */
+  
+   #detail_main_content img { margin:auto}
+   .truyen_mobi a{ color:#333}
+   #search_truyen{padding: 10px; background: #fff; width: 100%; max-width: 500px; margin: 0px auto; opacity:0.7; display:none; border-radius:4px}
+   .truyen_tags{ color:#999; font-size:11px}
+    .truyen_tags a{ color:#999; color:#00C}
+   
+   .user_profile_wrap{background-color:#fff; padding:5px; border-top:2px solid #F63}
+  
+   .ribbon {position: absolute;height: 40px;width: 40px;display: block;-webkit-border-radius: 0 2px 0 0;border-radius: 0 2px 0 0;top: 0;}
+   .ribbon_hot {background: url(../../images/ribbon_hot.png) no-repeat right top;-webkit-background-size: 40px;background-size: 40px;right: 0px;}
+   .ribbon_new {background: url(../../images/ribbon_new.png) no-repeat left top;-webkit-background-size: 40px;background-size: 40px;left: 0px; z-index:99}
+   
+ 
+.arrow_next{   position: absolute;   top:50%;   margin-top:-30px;   right:-1px;   background:#666 url('../../images/next-back.png');
+   background-position: -80px 0px;   width:26px;   height:60px;   z-index: 10;   border-radius: 4px 0 0 4px;
+}
+.arrow_next:hover{   background-position: -133px 0px;}
+.arrow_preview {   position: absolute;   top: 50%;   margin-top: -30px;   left: -1px;   background:#666 url('../../images/next-back.png');   background-position: -53px 0;   float: left;   width: 26px;   height: 60px;   border-radius: 0 4px 4px 0; z-index: 10;}
+.arrow_preview:hover {   background-position: -106px 0;}
+
+ 

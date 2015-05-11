@@ -1,0 +1,27 @@
+language: php
+php:
+  - 5.4
+  - hhvm
+
+env:
+  - CI_VERSION=2.2.1
+  - CI_VERSION=3.0rc2
+  - CI_VERSION=3.0.0
+
+# install vanilla CI 2.2 before anything
+before_install:
+  - wget https://github.com/bcit-ci/CodeIgniter/archive/$CI_VERSION.tar.gz -O - | tar xz
+  - cp -r application/* CodeIgniter-$CI_VERSION/application/
+  - if [[ "$CI_VERSION" < 3 ]]; then export CORE_DIR=core2; else export CORE_DIR=core3; fi; echo $CORE_DIR;
+  - cp -r system/$CORE_DIR/* CodeIgniter-$CI_VERSION/system/core
+
+# install this project on top of it
+install:
+  - cp -r CodeIgniter-$CI_VERSION/system/* system/
+  - cp -r CodeIgniter-$CI_VERSION/application/* application/
+  - mv CodeIgniter-$CI_VERSION/index.php index.php
+  - rm -rf CodeIgniter-$CI_VERSION
+
+# run multiple test commands
+script:
+  - phpunit -c application/tests/phpunit.xml   #custom test command to make sure CLI args don't break the test
