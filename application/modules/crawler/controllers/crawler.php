@@ -10,6 +10,8 @@ class Crawler extends MY_Controller{
 	public function __construct() {
 		parent::__construct();
 		$this->data['controller'] = 'crawler';
+		ini_set('memory_limit', '1204M');
+		set_time_limit(0);
 	}
 
 	public function GetStoryManga24h(){
@@ -155,5 +157,27 @@ class Crawler extends MY_Controller{
 		}
 	}
 	
+	public function getStoryWebTruyen()
+	{
+		$this->load->model('Webtruyen');
+		$obj_webtruyen = new Webtruyen();
+		//echo ($obj_webtruyen->getTotalManga());
+		$obj_webtruyen->getListManga();
+	}
 	
+	public function getInfoStoriesWebTruyen()
+	{
+		$this->load->model('Webtruyen');
+		$obj_webtruyen = new Webtruyen();
+		//echo ($obj_webtruyen->getTotalManga());
+		$obj_webtruyen->getMangaDetail();
+	}
+	
+	public function getChapterWebTruyen()
+	{
+		$this->load->model('Webtruyen');
+		$obj_webtruyen = new Webtruyen();
+		//echo ($obj_webtruyen->getTotalManga());
+		$obj_webtruyen->getListChapter();
+	}
 }

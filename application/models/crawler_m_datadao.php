@@ -1,18 +1,18 @@
 <?php
 /**
- * Order Detail dao
+ * Crawler_m_datadao
  * 
  * @author HauTruong
  *
  */
 require_once APPPATH.'models/MY_Model.php';
-class Order_detaildao extends MY_Model {
+class Crawler_m_datadao extends MY_Model {
 	/**
 	 * Table users
 	 *
 	 * @var string
 	 */
-	var $table = 'tbl_orderdetail';
+	var $table = 'crawler_m_data';
 	
 	/**
 	 * contructor

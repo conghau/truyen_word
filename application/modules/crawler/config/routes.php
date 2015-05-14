@@ -8,3 +8,9 @@ $route['crawler/updatedetailmanga24h']			= 'crawler/UpdateDetailManga24h';
 $route['crawler/updatedetailmanga24h/(:any)']			= 'crawler/UpdateDetailManga24h/$1';
 
 $route['crawler/getimagemanga24h']			    = 'crawler/GetImageManga24h';
+
+$route['crawler/getstorywebtruyen']			    = 'crawler/getStoryWebTruyen';
+
+$route['crawler/getconfig']			    = 'manager/getConfig';
+$route['crawler/getinfoweb']			    = 'crawler/getInfoStoriesWebTruyen';
+$route['crawler/getchapterwebtruyen']			    = 'crawler/getChapterWebTruyen';

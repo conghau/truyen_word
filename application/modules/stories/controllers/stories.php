@@ -38,4 +38,9 @@ class Stories extends MY_Controller {
 	{
 		$this->parser->parse("chapter.tpl", $this->data);
 	}
+	
+	public function movie()
+	{
+		$this->parser->parse("movie.tpl", $this->data);
+	}
 }

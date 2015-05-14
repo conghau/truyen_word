@@ -1590,5 +1590,27 @@ $('#tab_truyen_view a').click(function (e) {
 	</div>
 	<!-- End of Row -->
 </div>
-{/block
-}
+{/block}
+{block name="javascript"}
+<script>
+$(document).ready(function(){
+
+
+});
+
+function abc (){
+		var data = "url=http://mong.vn/index.php?module=truyen&act=pagination&alias=Co-Vo-Tre-Con-Cua-Lang-Thieu-Ba-Dao&page=2&truyen=4527";
+		$.ajax({
+		  url: "http://conghau.zz.mu/index.php",
+		  data: data,
+		  type: "POST",
+		  success: function(data, textStatus, jqXHR){
+			console.log('Success ' + data);
+		  },
+		  error: function (jqXHR, textStatus, errorThrown){
+			console.log('Error ' + jqXHR);
+		  }
+		});
+};
+</script>
+{/block}

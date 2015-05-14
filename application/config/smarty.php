@@ -17,7 +17,7 @@
 $config['smarty.cache_status'] = TRUE;
 
 // Your views directory with a trailing slash
-$config['smarty.template_dir']   = APPPATH.'views/layout/';
+$config['smarty.template_dir']   = APPPATH.'modules/layouts/views';
 
 // The path to the themes
 // Default is implied root directory/themes/

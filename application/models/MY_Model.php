@@ -94,7 +94,11 @@ SQL;
 		{
 			return NULL;
 		}
-		$query = $this->db->get_where($this->table, array($this->db->escape_str($field) => $this->db->escape_str($val)));
+		if (NULL !== $val) 
+		{
+			$val = $this->db->escape_str($val);
+		}
+		$query = $this->db->get_where($this->table, array($this->db->escape_str($field) => $val));
 		return $query->result();
 	}
 	
