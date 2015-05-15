@@ -84,11 +84,12 @@ SQL;
 	 *
 	 * Get object from the database by Field
 	 *
-	 * @param	string|NULL $field.
+	 * @param	string|NULL $field .
 	 * @param	string|NULL $val of field
-	 * @return	array Object
+	 * @param 	boolean $single_row
+	 * @return	array Object 
 	 */
-	public function get_by_FIELD($field = NULL, $val = NULL)
+	public function get_by_FIELD($field = NULL, $val = NULL, $single_row = FALSE)
 	{
 		if (NULL == $field)
 		{
@@ -99,6 +100,10 @@ SQL;
 			$val = $this->db->escape_str($val);
 		}
 		$query = $this->db->get_where($this->table, array($this->db->escape_str($field) => $val));
+		if ($single_row == TRUE)
+		{
+			return $query->row();
+		}
 		return $query->result();
 	}
 	
@@ -133,5 +138,31 @@ SQL;
 			$this->db->insert($this->table, $arrData);
 			return $this->db->insert_id();
 		}
+	}
+	
+	public function insert_batch($arrData)
+	{
+		try
+		{
+			$this->db->trans_begin();
+			$id = $this->db->insert_batch($this->table, $arrData);
+			if ($this->db->trans_status() === FALSE)
+			{
+				$this->db->trans_rollback();
+			}
+			else
+			{
+				$this->db->trans_commit();
+			}
+			return $id;
+		}
+		catch (Exception $e)
+		{
+			$this->db->trans_rollback();
+			log_message('error', $e->getMessage());
+			show_error($e->getMessage());
+			return 0;
+		}
+		
 	}
 }

@@ -22,4 +22,15 @@ class Crawler_m_datadao extends MY_Model {
 	{
 		parent::__construct($this->table);
 	}
+	
+	public function get_value_by_key($key = '', $parent_id = '')
+	{
+		$this->db->select('value');
+		$this->db->where('key', $key);
+		if ('' != $parent_id)
+		{
+			$this->db->where('parent_id', $parent_id);
+		}
+		return $this->db->get($this->table)->row()->value;
+	}
 }
