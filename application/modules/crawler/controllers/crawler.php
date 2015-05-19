@@ -220,20 +220,83 @@ class Crawler extends MY_Controller{
 		}
 	}
 	
-	public function getInfoStoriesWebTruyen()
+	public function get_info_stories($id = 0)
 	{
+		$this->output->enable_profiler(TRUE);
 		$this->load->model('Webtruyen');
 		$obj_webtruyen = new Webtruyen();
-		//echo ($obj_webtruyen->getTotalManga());
-		$obj_webtruyen->getMangaDetail();
+		$this->load->model('Storiesdao');
+		$obj_storiesdao = new Storiesdao();
+		$arr_data_update = [];
+		$record = $obj_storiesdao->get_by_id(2228);
+		$data = $obj_webtruyen->getMangaDetail ( $record->crawler_url );
+		if (1 == $record->crawler_update) {
+			continue;
+		}
+		if (! (is_null ( $record->description )) && ($record->state == $data ['state'])) {
+			continue;
+		}
+		if ($data ['state'] == 'FULL') {
+			$data ['crawler_update'] = 1;
+		}
+		$data ['id'] = $record->id;
+		array_push ( $arr_data_update, $data );
+		$re = $obj_storiesdao->update_batch($arr_data_update);
+		var_dump($re);
+		//var_dump($arr_data_update);
+	}
+	
+	public function get_info_all_stories()
+	{
+		$this->output->enable_profiler(TRUE);
+		$this->load->model('Webtruyen');
+		$obj_webtruyen = new Webtruyen();
+//		var_dump($obj_webtruyen->getMangaDetail('http://webtruyen.com/bong-hong-bang/'));
+		$this->load->model('Storiesdao');
+		$obj_storiesdao = new Storiesdao();
+		$total_record = $obj_storiesdao->count_record();
+		$arr_data_update = [];
+		for ($i = 2200; $i < 2500 ; $i += 10)
+		{
+			$arr_records = $obj_storiesdao->get(10, $i);
+			foreach ($arr_records as $record)
+			{
+				$data = $obj_webtruyen->getMangaDetail($record->crawler_url);
+				if (1 == $record->crawler_update)
+				{
+					continue;
+				}
+				if (!(is_null($record->description)) && ($record->state == $data['state']))
+				{
+					continue;
+				}
+				//var_dump(is_null($record->description));
+				if ($data['state'] == 'FULL')
+				{
+					$data['crawler_update'] = 1;
+				}
+				$data['id'] = $record->id;
+				array_push($arr_data_update, $data);
+			}
+		}
+		$re = $obj_storiesdao->update_batch($arr_data_update);
+		var_dump($re);
+		//var_dump($arr_data_update);
 	}
 	
 	public function getChapterWebTruyen()
 	{
+		$this->load->model('Storiesdao');
+		$obj_storiesdao = new Storiesdao();
+		$story = $obj_storiesdao->get_by_id(107);
 		$this->load->model('Webtruyen');
 		$obj_webtruyen = new Webtruyen();
 		//echo ($obj_webtruyen->getTotalManga());
-		$obj_webtruyen->getListChapter();
+		$data_insert = $obj_webtruyen->getListChapter($story->id,$story->crawler_stories_id, $story->number_page);
+		$this->load->model('Chapterdao');
+		$obj_chapterdao = new Chapterdao();
+		$re = $obj_chapterdao->insert_batch($data_insert);
+		var_dump($re);
 	}
 	
 	public function getContentChapter()

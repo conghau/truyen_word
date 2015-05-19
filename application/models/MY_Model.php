@@ -165,4 +165,45 @@ SQL;
 		}
 		
 	}
+	
+	public function update_batch($arrData)
+	{
+		try
+		{
+			$this->db->trans_begin();
+			$id = $this->db->update_batch($this->table, $arrData,'id');
+			if ($this->db->trans_status() === FALSE)
+			{
+				$this->db->trans_rollback();
+				return FALSE;
+			}
+			else
+			{
+				$this->db->trans_commit();
+			}
+			return TRUE;
+		}
+		catch (Exception $e)
+		{
+			$this->db->trans_rollback();
+			log_message('error', $e->getMessage());
+			show_error($e->getMessage());
+			return FALSE;
+		}
+	
+	}
+	
+	
+	/**
+	 * count_record
+	 * 
+	 * @param array $arr_where_condition
+	 * @return int;
+	 */
+	public function count_record($arr_where_condition = [])
+	{
+		$this->db->select('count(id) as id');
+		$query = $this->db->get_where($this->table, $arr_where_condition);
+		return $query->row()->id;
+	}
 }

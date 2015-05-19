@@ -16,6 +16,9 @@ $route ['crawler/get-story'] = 'crawler/getStory';
 $route ['crawler/get-story/(:any)'] = 'crawler/getStory/$1';
 
 $route ['crawler/getconfig'] = 'manager/getConfig';
-$route ['crawler/getinfoweb'] = 'crawler/getInfoStoriesWebTruyen';
+
+$route ['crawler/getinfoweb'] = 'crawler/get_info_all_stories';
+$route ['crawler/getinfoweb/(:num)'] = 'crawler/get_info_stories/$1';
+
 $route ['crawler/getchapterwebtruyen'] = 'crawler/getChapterWebTruyen';
 $route ['crawler/getcontentchapter'] = 'crawler/getContentChapter';

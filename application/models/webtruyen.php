@@ -148,7 +148,7 @@ class Webtruyen {
 	}
 	public function getMangaDetail($linkManga='') {
 		// try {
-		$linkManga = 'http://webtruyen.com/khong-yeu-thi-bien/';
+		//$linkManga = 'http://webtruyen.com/khong-yeu-thi-bien/';
 		$html = file_get_html ( $linkManga );
 		if ($html == FALSE) {
 			return FALSE;
@@ -169,14 +169,14 @@ class Webtruyen {
  			$key = url_friendly ($arr[0]);
 			if (array_key_exists ( $key, $targets )) {
 				$key = $targets [$key];
-				$arr_info [$key] = trim($arr[1]);
+				$arr_info [$key] = ('Hoàn Thành' == trim($arr[1])? 'FULL' : trim($arr[1]));
 			} 
 		}
 		$this->arrInfo = $arr_info;
 		
 		//get stories id
 		foreach ( $html->find ( 'div.contdetail > input#hiddenID' ) as $element ) {
-			$this->arrInfo['source_id'] = $element->value;
+			$this->arrInfo['crawler_stories_id'] = $element->value;
 		}
 		
 		// get introduce
@@ -185,7 +185,7 @@ class Webtruyen {
 			$intro .= $element->innertext;
 		}
 		$this->intro = $intro;
-		$this->arrInfo ['intro'] = $intro;
+		$this->arrInfo ['description'] = $intro;
 		
 		//get total page
 		foreach ( $html->find ( 'span.numbpage' ) as $element ) {
@@ -193,38 +193,78 @@ class Webtruyen {
 			$this->arrInfo ['number_page'] = trim($arr[1]);
 		}
 		
-		var_dump($this->arrInfo);
 		return $this->arrInfo;
 	}
-	public function getListChapter($linkManga='', $html = null, $id=0, $number_page=1) {
-		$id = 578;
-		$linkManga = 'http://webtruyen.com/story/Paging_listbook/'.$id.'/'.$number_page;
-		if ($html == null) {
+// 	public function getListChapter($linkManga='', $html = null, $id=0, $number_page=2) {
+// 		$id = 578;
+// 		$linkManga = 'http://webtruyen.com/story/Paging_listbook/';
+// 		$arrChapter = array ();
+// 		for ($i = 1; $i <= $number_page; $i++)
+// 		{
+// 			$link_crawler = $linkManga . $id . '/' . $i;
+// 			// if ($html == null) {
+// 			$html = file_get_html ( $link_crawler );
+// 			// }
+// 			// if (false == $html) {
+// 			// return FALSE;
+// 			// }
+			
+// 			$i = 0;
+// 			foreach ( $html->find ( 'div.gridlistchapter > table > tr' ) as $element ) {
+// 				if ($i == 0) {
+// 					$i ++;
+// 					continue;
+// 				}
+				
+// 				$chapter = array ();
+// 				$chapter ['name'] = trim ( $element->last_child ()->prev_sibling ()->plaintext );
+// 				$chapter ['link'] = $element->last_child ()->prev_sibling ()->find ( 'a', 0 )->href;
+// 				$a = preg_replace ( '/[^0-9_]|\d+_+/', '', $chapter ['link'] );
+// 				$chapter ['id'] = $a;
+// 				// $arr = explode ( "/", $chapter ['link'] );
+// 				// $chapter ['chapter24h_id'] = $arr [3];
+// 				array_push ( $arrChapter, $chapter );
+// 			}
+// 		}
+// 		var_dump($arrChapter);
+// 		return $arrChapter;
+// 	}
+
+public function getListChapter($stories_id,$crawler_stories_id=0, $number_page=1) {
+	$arrChapter = array ();
+	for ($index = 1 ; $index <= $number_page; $index ++)
+	{
+		$linkManga = 'http://webtruyen.com/story/Paging_listbook/'.$crawler_stories_id.'/'.$index;
+		//if ($html == null) {
 			$html = file_get_html ( $linkManga );
-		}
+		//}
 		if (false == $html) {
 			return FALSE;
 		}
-		$arrChapter = array ();
+		
 		$i = 0;
 		foreach ( $html->find ( 'div.gridlistchapter > table > tr' ) as $element ) {
 			if ($i == 0) {
 				$i ++;
 				continue;
 			}
-			
+				
 			$chapter = array ();
-			$chapter ['name'] = trim ( $element->last_child ()->prev_sibling()->plaintext );
-			$chapter ['link'] = $element->last_child ()->prev_sibling()->find('a',0)->href;
-			$a = preg_replace('/[^0-9_]|\d+_+/','',$chapter ['link']);
-			$chapter ['id'] = $a;
+			$chapter ['title'] = trim ( $element->last_child ()->prev_sibling()->plaintext );
+			$chapter ['crawler_url'] = $element->last_child ()->prev_sibling()->find('a',0)->href;
+			$a = preg_replace('/[^0-9_]|\d*_+/','',$chapter ['crawler_url']);
+			$chapter ['crawler_chapter_id'] = $a;
+			$chapter['stories_id'] = $stories_id;
+			$chapter['crawler_stories_id'] = $crawler_stories_id;
 			//$arr = explode ( "/", $chapter ['link'] );
 			//$chapter ['chapter24h_id'] = $arr [3];
 			array_push ( $arrChapter, $chapter );
 		}
-		var_dump($arrChapter);
-		return $arrChapter;
 	}
+	//var_dump($arrChapter);
+	return $arrChapter;
+}
+
 	public function getContentChapter($linkChapter) {
 		$arrChapterImage = array ();
 		if (! is_null ( $linkChapter )) { // .'<br />';
