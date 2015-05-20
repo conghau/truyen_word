@@ -29,8 +29,19 @@ class Stories extends MY_Controller {
 		$this->parser->parse("home.tpl", $this->data);
 	}
 	
-	public function detail()
+	public function detail($id)
 	{
+		$this->load->model('Storiesdao');
+		$this->load->model('Chapterdao');
+		
+		$obj_storiesdao = new Storiesdao();
+		$story = $obj_storiesdao->get_by_id($id);
+		
+		$obj_chapterdao = new Chapterdao();
+		$arr_chapters = $obj_chapterdao->get_by_FIELD('stories_id', $id);
+		
+		$this->data['story'] = $story;
+		$this->data['arr_chapters'] = $arr_chapters;
 		$this->parser->parse("detail.tpl", $this->data);
 	}
 	

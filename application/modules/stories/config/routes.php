@@ -50,3 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['stories'] = 	'stories';
+$route['stories/detail/(:num)'] = 	'stories/detail/$1';
+$route['stories'] = 	'stories';
+

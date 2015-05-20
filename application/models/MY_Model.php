@@ -87,9 +87,10 @@ SQL;
 	 * @param	string|NULL $field .
 	 * @param	string|NULL $val of field
 	 * @param 	boolean $single_row
+	 * 	 * @param 	string select column
 	 * @return	array Object 
 	 */
-	public function get_by_FIELD($field = NULL, $val = NULL, $single_row = FALSE)
+	public function get_by_FIELD($field = NULL, $val = NULL, $single_row = FALSE , $select = '*', $convert_array = FALSE)
 	{
 		if (NULL == $field)
 		{
@@ -99,10 +100,18 @@ SQL;
 		{
 			$val = $this->db->escape_str($val);
 		}
+		if (! is_null($select))
+		{
+			$this->db->select($select);
+		}
 		$query = $this->db->get_where($this->table, array($this->db->escape_str($field) => $val));
 		if ($single_row == TRUE)
 		{
 			return $query->row();
+		}
+		if ($convert_array == TRUE)
+		{
+			return $query->result_array();
 		}
 		return $query->result();
 	}

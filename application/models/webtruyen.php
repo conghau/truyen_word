@@ -230,11 +230,12 @@ class Webtruyen {
 // 		return $arrChapter;
 // 	}
 
-public function getListChapter($stories_id,$crawler_stories_id=0, $number_page=1) {
+public function getListChapter($stories_id, $crawler_stories_id = 0,$key='atashi-no-himitsu-bi-mat-cua-em', $number_page=1) {
 	$arrChapter = array ();
+	$arr_crawler_chapter_id = array();
 	for ($index = 1 ; $index <= $number_page; $index ++)
 	{
-		$linkManga = 'http://webtruyen.com/story/Paging_listbook/'.$crawler_stories_id.'/'.$index;
+		$linkManga = 'http://webtruyen.com/story/Paging_listbook/'.$key.'/'.$index;
 		//if ($html == null) {
 			$html = file_get_html ( $linkManga );
 		//}
@@ -250,19 +251,27 @@ public function getListChapter($stories_id,$crawler_stories_id=0, $number_page=1
 			}
 				
 			$chapter = array ();
-			$chapter ['title'] = trim ( $element->last_child ()->prev_sibling()->plaintext );
-			$chapter ['crawler_url'] = $element->last_child ()->prev_sibling()->find('a',0)->href;
-			$a = preg_replace('/[^0-9_]|\d*_+/','',$chapter ['crawler_url']);
-			$chapter ['crawler_chapter_id'] = $a;
+			$chapter ['title'] = trim ( $element->children(3)->plaintext );
+			$chapter ['crawler_url'] = $element->children(3)->find('a',0)->href;
+			if (FALSE == ($chapter ['crawler_url'])){
+				$chapter ['crawler_chapter_id'] = 0;
+			}
+			else
+			{
+				$crawler_chapter_id = explode('_', $chapter ['crawler_url'])[1];
+				$crawler_chapter_id = preg_replace('/[^0-9]/','',$crawler_chapter_id);
+				$chapter ['crawler_chapter_id'] = $crawler_chapter_id;
+			}
 			$chapter['stories_id'] = $stories_id;
 			$chapter['crawler_stories_id'] = $crawler_stories_id;
 			//$arr = explode ( "/", $chapter ['link'] );
 			//$chapter ['chapter24h_id'] = $arr [3];
 			array_push ( $arrChapter, $chapter );
+			array_push($arr_crawler_chapter_id, $chapter ['crawler_chapter_id']);
 		}
 	}
 	//var_dump($arrChapter);
-	return $arrChapter;
+	return array($arrChapter, $arr_crawler_chapter_id);
 }
 
 	public function getContentChapter($linkChapter) {

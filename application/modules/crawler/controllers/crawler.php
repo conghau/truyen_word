@@ -286,17 +286,43 @@ class Crawler extends MY_Controller{
 	
 	public function getChapterWebTruyen()
 	{
+		//$this->output->enable_profiler(TRUE);
 		$this->load->model('Storiesdao');
-		$obj_storiesdao = new Storiesdao();
-		$story = $obj_storiesdao->get_by_id(107);
-		$this->load->model('Webtruyen');
-		$obj_webtruyen = new Webtruyen();
-		//echo ($obj_webtruyen->getTotalManga());
-		$data_insert = $obj_webtruyen->getListChapter($story->id,$story->crawler_stories_id, $story->number_page);
 		$this->load->model('Chapterdao');
+		$this->load->model('Webtruyen');
+		
+		$obj_storiesdao = new Storiesdao();
 		$obj_chapterdao = new Chapterdao();
-		$re = $obj_chapterdao->insert_batch($data_insert);
-		var_dump($re);
+		
+		$arr_stories = $obj_storiesdao->get(200,600);
+		foreach ($arr_stories as $story)
+		{
+			$story = $obj_storiesdao->get_by_id($story->id);
+			//$this->load->model('Webtruyen');
+			$obj_webtruyen = new Webtruyen();
+			list($arr_crawler_insert, $arr_crawler_chapter_id) = $obj_webtruyen->getListChapter($story->id,$story->crawler_stories_id,$story->key, $story->number_page);
+			//var_dump($arr_crawler_insert);
+			//$this->load->model('Chapterdao');
+			//$obj_chapterdao = new Chapterdao();
+			$arr_chapters_id = $obj_chapterdao->get_by_FIELD('stories_id',$story->id , FALSE, 'crawler_chapter_id', TRUE);
+			$arr_chapters_id = $this->get_array_value($arr_chapters_id,'crawler_chapter_id');
+			$arr_diff = array_diff($arr_crawler_chapter_id, $arr_chapters_id);
+			//var_dump($arr_crawler_chapter_id);
+			$arr_insert = array();
+			foreach ($arr_crawler_insert as &$v)
+			{
+				if (in_array($v['crawler_chapter_id'], $arr_diff))
+				{
+					array_push($arr_insert, $v);
+				}
+			}
+			//var_dump($arr_insert);
+			if (!empty($arr_insert))
+			{
+				$result = $obj_chapterdao->insert_batch($arr_insert);
+				var_dump($result);
+			}
+		}
 	}
 	
 	public function getContentChapter()
@@ -305,5 +331,18 @@ class Crawler extends MY_Controller{
 		$obj_webtruyen = new Webtruyen();
 		$linkChapter = 'http://webtruyen.com/khong-yeu-thi-bien/chuong-2_641191.html';
 		$obj_webtruyen->getContentChapter($linkChapter);
+	}
+	
+	private function get_array_value($arr_input, $key)
+	{
+		$arr_data = array();
+		foreach ($arr_input as $k=>$v)
+		{
+			if(null != $v[$key])
+			{
+				array_push($arr_data, $v[$key]);
+			}
+		}
+		return $arr_data;
 	}
 }
