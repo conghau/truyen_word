@@ -143,7 +143,7 @@ class Webtruyen {
 				array_push ( $arrManga, $manga );
 			}
 		}
-		//var_dump ( $arrManga );
+		var_dump ( $arrManga );die;
 		return $this->arrManga = $arrManga;
 	}
 	public function getMangaDetail($linkManga='') {
@@ -281,10 +281,17 @@ public function getListChapter($stories_id, $crawler_stories_id = 0,$key='atashi
 			if ($html == false) {
 				return FALSE;
 			}
-			foreach ( $html->find ( 'div.detailcontent' ) as $element ) {
-				$content =  ( $element->plaintext );
+			foreach ( $html->find ( 'div#detailcontent' ) as $element ) {
+				$content = ( $element->plaintext );
 				$content = str_replace('Ads ', '', $content);//($content,0,4);
-				echo $content;
+				if ('' == trim($content))
+				{
+					foreach ($element->find('img') as $e)
+					{
+						$content .= $e;
+					}
+				}
+				//echo $content;
 			}
 		}
 		return $content;

@@ -48,10 +48,10 @@ class MY_Model extends CI_Model {
 	 * @param	integer|NULL $offset Offset the results when limiting.
 	 * @return	array Object
 	 */
-	public function get($limit = NULL, $offset = NULL)
+	public function get($limit = NULL, $offset = NULL, $where = [])
 	{
 		// Get by built up query
-		$query = $this->db->get($this->table, $limit, $offset);
+		$query = $this->db->get_where($this->table, $where, $limit, $offset);
 		return $query->result();
 	}
 	
@@ -71,7 +71,7 @@ class MY_Model extends CI_Model {
 		}
 		$binds = array($id);
 		$sql = <<<SQL
-			select * from $this->table where id = ?
+			SELECT * FROM $this->table WHERE id = ?
 SQL;
 		
 		// Get by built up query

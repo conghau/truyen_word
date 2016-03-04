@@ -31,6 +31,7 @@ class Stories extends MY_Controller {
 	
 	public function detail($id)
 	{
+		//$this->output->enable_profiler(TRUE);
 		$this->load->model('Storiesdao');
 		$this->load->model('Chapterdao');
 		
@@ -38,15 +39,33 @@ class Stories extends MY_Controller {
 		$story = $obj_storiesdao->get_by_id($id);
 		
 		$obj_chapterdao = new Chapterdao();
-		$arr_chapters = $obj_chapterdao->get_by_FIELD('stories_id', $id);
+		$arr_chapters = $obj_chapterdao->get_list_chapter(array('stories_id' => $id));
+		$total_chapter = $obj_chapterdao->count_record(array('stories_id' => $id));
+		$last_chapter = $obj_chapterdao->get_last_chapter($id);
 		
+		$this->data['total_chapter'] = $total_chapter;
+		$this->data['last_chapter'] = $last_chapter;
 		$this->data['story'] = $story;
 		$this->data['arr_chapters'] = $arr_chapters;
 		$this->parser->parse("detail.tpl", $this->data);
 	}
 	
-	public function chapter()
+	public function chapter($key='', $id = 0)
 	{
+		//$this->output->enable_profiler(TRUE);
+		$this->load->model('Chapterdao');
+		$this->load->model('Storiesdao');
+		
+		$obj_chapterdao = new Chapterdao();
+		$chapter = $obj_chapterdao->get_by_id($id);
+		$last_chapter = $obj_chapterdao->get_last_chapter($chapter->stories_id);
+		
+		$obj_storiesdao = new Storiesdao();
+		$story = $obj_storiesdao->get_by_FIELD('id', $chapter->stories_id, TRUE, 'id, title, key, state');
+		$this->data['story'] = $story;
+		$this->data['key'] = $key;
+		$this->data['chapter'] = $chapter;
+		$this->data['last_chapter'] = $last_chapter;
 		$this->parser->parse("chapter.tpl", $this->data);
 	}
 	

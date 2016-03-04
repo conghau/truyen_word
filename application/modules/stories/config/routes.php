@@ -51,5 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['stories'] = 	'stories';
 $route['stories/detail/(:num)'] = 	'stories/detail/$1';
-$route['stories'] = 	'stories';
+$route['stories/(:any)/(:num).html'] = 	'stories/detail/$2';
+$route['stories/(:any)/chapter-(:num).html'] = 	'stories/chapter/$1/$2';
 

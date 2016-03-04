@@ -23,14 +23,25 @@ class Crawler_m_datadao extends MY_Model {
 		parent::__construct($this->table);
 	}
 	
-	public function get_value_by_key($key = '', $parent_id = '')
-	{
+	/**
+	 * get_value_by_key
+	 * @param string $key
+	 * @param boolean $decode
+	 * @param boolean $to_array
+	 */
+	public function  get_value_by_key( $key = '', $decode = FALSE, $to_array = FALSE) {
 		$this->db->select('value');
 		$this->db->where('key', $key);
-		if ('' != $parent_id)
-		{
-			$this->db->where('parent_id', $parent_id);
+		$re = $this->db->get($this->table)->row()->value;
+		
+		if(NULL != $re && TRUE == $decode) {
+			return json_decode($re, $to_array);
 		}
-		return $this->db->get($this->table)->row()->value;
+		return $re;
+	}
+	
+	public function update_value_by_key($key='', $value) {
+		$this->db->where('key', $key);
+		$this->db->update($this->table, array('value' => $value));
 	}
 }

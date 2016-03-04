@@ -62,49 +62,7 @@ template*} {block name=body}
 
 
 								</div>
-								<!-- JS to add -->
-								<script type="text/javascript">
-								  $(document).ready(function(){
-									rateDisable = false;
-									if($.cookie('rtruyen_4561') == '1'){
-					
-										rateDisable = true;
-									}
-									  
-									$(".basic").jRating({
-										bigStarsPath : 'http://mong.vn/public/images/stars.png', // path of the icon stars.png
-										smallStarsPath : 'http://mong.vn/public/images/small.png', // path of the icon small.png
-										length : 5,
-										decimalLength : 1,
-										isDisabled: rateDisable,
-										step: true,
-										nbRates : 3,
-										rateMax : 5,
-										showRateInfo:false,
-										phpPath : 'http://mong.vn/index.php?module=ajax&act=ajax&rating=1&act=truyen&id=4561',
-										
-										onSuccess : function(data){
-											
-											if(data){
-												if(data.type == 'success'){
-													classMsgRating = 'rate_success';
-													$.cookie('rtruyen_4561', '1', { expires: 30 });
-												}else if(data.type == 'error'){
-													classMsgRating = 'rate_error';
-												}
-												
-												$('#rate_message').html('<p class="'+classMsgRating+'">'+data.message+'</p>');
-												$('#rate_message').slideDown('normal').delay(3000).slideUp('normal');
-											}
-											
-										  },
-
-										
-									});
-								  });
-								</script>
-
-
+								
 								<div class="btn-group-vertical">
 									<a class="btn btn-info btn-sm" role="button"
 										href="http://mong.vn/truyen/Vo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc-Chuong-632-Anh-yeu-em-chinh-van-Dai-Ket-Cuc/451011.htm">Đọc
@@ -127,8 +85,8 @@ template*} {block name=body}
 						<div class="col-md-9 col-sm-9 col-xs-12"
 							id="truyen-detail-wrapper">
 							<a itemprop="url"
-								href="http://mong.vn/truyen/Vo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc/4561.html"><h1
-									class="name" itemprop="name">{$story->title} Giám Đốc</h1></a>
+								href="{$base_url}stories/{$story->key}/{$story->id}.html"><h1
+									class="name" itemprop="name">{$story->title}</h1></a>
 							<div class="item_truyen_detail">
 
 								<ul class="nav nav-tabs" id="truyen_detail">
@@ -148,7 +106,7 @@ template*} {block name=body}
 													<td class="author" width="80" style="padding: 5px;">Tác
 														giả:</td>
 													<td class="author" style="padding: 5px;"><span><a
-															href="http://mong.vn/truyen/author/Han-Trinh-Trinh.html"
+															href="http://mong.vn/truyen/author/{$story->author}.html"
 															itemprop="author" itemscope=""
 															itemtype="http://schema.org/Person"><span itemprop="name">{$story->author}</span></a></span></td>
 												</tr>
@@ -179,7 +137,7 @@ template*} {block name=body}
 												<tr>
 													<td class="view">Số Chương:</td>
 													<td class="sochuong" style="padding: 1px 5px;"><span
-														class="badge">632</span></td>
+														class="badge">{$total_chapter}</span></td>
 												</tr>
 												<tr>
 													<td class="tukhoa">Từ Khóa:</td>
@@ -195,35 +153,19 @@ template*} {block name=body}
 												<tr>
 													<td class="stat_info2">Mới Nhất :</td>
 													<td class="stat_info2"><span> <a
-															href="http://mong.vn/truyen/Vo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc-Chuong-632-Anh-yeu-em-chinh-van-Dai-Ket-Cuc/451011.htm">Chương
-																632: Anh yêu em (chính văn Đại Kết Cục)</a>
+															href="{$base_url}stories/{$story->key}/chapter-{$last_chapter->id}.html">Chương
+																{$total_chapter}: {$last_chapter->title}</a>
 													</span></td>
 												</tr>
 												<tr>
 													<td class="stat_info2">Like Truyện :</td>
 													<td class="stat_info2"><span
 														style="color: #16a085; font-weight: bold">Hãy Like Google+
-															và Facebook truyện này để ủng hộ Mong.vn và giúp truyện
+															và Facebook truyện này để ủng hộ {$base_url} và giúp truyện
 															ra nhanh hơn</span> <!-- AddThis Button BEGIN -->
 														<div class="addthis_toolbox addthis_default_style">
 															<a class="addthis_button_facebook_like at300b"
-																fb:like:layout="button_count"><div class="fb-like"
-																	data-ref=".VVxQ6v_VgnQ.like" data-layout="button_count"
-																	data-show_faces="false" data-share="false"
-																	data-action="like" data-width="90" data-font="arial"
-																	data-href="http://mong.vn/truyen/Vo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc/4561.html"
-																	data-send="false"></div></a> <a
-																class="addthis_button_google_plusone at300b"
-																g:plusone:size="medium"><div id="___plusone_1"
-																	style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;">
-																	<iframe frameborder="0" hspace="0" marginheight="0"
-																		marginwidth="0" scrolling="no"
-																		style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;"
-																		tabindex="0" vspace="0" width="100%"
-																		id="I1_1432113386794" name="I1_1432113386794"
-																		src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;hl=en-US&amp;origin=http%3A%2F%2Fmong.vn&amp;url=http%3A%2F%2Fmong.vn%2Ftruyen%2FVo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc%2F4561.html&amp;gsrc=3p&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.vi.xctU4ewbQX4.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Ft%3Dzcms%2Frs%3DAGLTcCNdSorm2qwqGGXWnVnXwfNQqjG6Sw#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I1_1432113386794&amp;parent=http%3A%2F%2Fmong.vn&amp;pfname=&amp;rpctoken=96208402"
-																		data-gapiattached="true" title="+1"></iframe>
-																</div></a>
+																</a>
 
 															<div class="atclear"></div>
 														</div> <!-- AddThis Button END -->
@@ -240,63 +182,15 @@ template*} {block name=body}
 										<div class="noidung" itemprop="description">
 											{$story->description} <br>
 											<div style="font-size: 11px">
-												Bạn đang <strong>đọc truyện Vợ Trước Giá Trên Trời Của Tổng
-													Giám Đốc</strong> trên website <a href="http://mong.vn/"><strong>đọc
+												Bạn đang <strong>đọc truyện {$story->title}</strong> trên website <a href="{$base_url}"><strong>đọc
 														truyện online</strong></a>. Bạn có thể truy cập website
 												bằng thiết bị di động như iphone,android,windown phone để
 												đọc truyện nhanh hơn. Hiện tại chúng tôi đang cập nhật tính
-												năng download truyện Vợ Trước Giá Trên Trời Của Tổng Giám
-												Đốc full pdf và prc. Hi vọng sẽ sớm ra mắt bạn đọc.
+												năng download truyện {$story->title} full pdf và prc. Hi vọng sẽ sớm ra mắt bạn đọc.
 											</div>
 										</div>
 									</div>
-
-
 								</div>
-
-
-								{literal}
-								<script>
-$('#truyen_detail').click(function (e) {
-	
-	 
-  	e.preventDefault();
-  	
-  	if($(this).find('.active').find('a').attr('href') != '#truyen_noidung'){
-  	  	
-	  	if($('.noidung').height() > 150){
-			$('.noidung').css('height', '140').css('overflow', 'hidden');
-			$('.truyen_thongtin_tab').append('<p id="threedots" style="text-align:center; font-size: 15px;">...</p><p class="viewmore extend">Xem thêm</p>');
-			
-		}
-  }else{
-	$('#threedots').remove();
-	$('.viewmore').remove();
-	$('.noidung').css('height', '');
-  }
-		  
-  	$(this).tab('show');
-  
-});
-
-$('.item_truyen_detail .viewmore').live('click', function(e){
-	if($(this).hasClass('shorten')){
-		$('.noidung').css('height', '140').css('overflow', 'hidden');
-		$(this).addClass('extend');
-		$(this).html('Xem thêm');
-		$(this).removeClass('shorten');
-		$('#threedots').html('...');
-		window.scroll(0,findPos(document.getElementById("truyen_detail")) - 50);
-		
-	}else{
-		$('.noidung').css('height', 'auto');
-		$(this).addClass('shorten');
-		$(this).html('Rút gọn');
-		$(this).removeClass('extend');
-		$('#threedots').html('');
-	}
-});
-</script>
 							</div>
 							<!-- End item_truyen_box -->
 						</div>
@@ -304,24 +198,14 @@ $('.item_truyen_detail .viewmore').live('click', function(e){
 
 						<div class="clearfix"></div>
 
-
-
-
-
 						<!-- Start footable -->
-
 
 						<link rel="stylesheet" type="text/css"
 							href="public/exts/footable/css/footable.core.min.css">
 						<script type="text/javascript"
 							src="public/exts/paging/js/jquery.jqpagination.min.js"></script>
 
-
 						<br>
-
-
-
-
 						<div class="row"
 							style="background-color: #fafafa; padding: 4px; margin: 5px; border-radius: 2px">
 							<div class="col-md-6">
@@ -330,7 +214,7 @@ $('.item_truyen_detail .viewmore').live('click', function(e){
 									style="line-height: 20px; border-radius: 2px; background: #359e9d;">
 									<input type="text" class="curchuong"
 									style="color: #000; text-align: center; width: 35px; border: none; border-radius: 2px"
-									value="??" id="curchuong">&nbsp;/&nbsp;632
+									value="0" id="curchuong">&nbsp;/&nbsp;{$total_chapter}
 								</span> <a class="btn btn-warning btn-sm fchuong">Go <i
 									class="fa fa-angle-double-right"></i>
 								</a>
@@ -351,52 +235,6 @@ $('.item_truyen_detail .viewmore').live('click', function(e){
 							</div>
 						</div>
 
-						<script>
-		  $(function(){
-			
-			
-        	$('.nouislider').noUiSlider({
-					 range: [0,632]
-					,start: 0
-					,step: 1
-					,handles: 1
-					,serialization: {
-						resolution: 1,
-						to: [ $(".curchuong"), 'val' ]
-					}
-				});
-				
-		$('.fchuong').live('click', function(e){
-			e.preventDefault();
-			$.ajax({
-					url : "index.php",
-					type : 'POST',
-				
-					data : {
-						module: 'truyen', 
-						act :'fchuong', 
-						thutu : $('#curchuong').val(),
-						alias:'Vo-Truoc-Gia-Tren-Troi-Cua-Tong-Giam-Doc',
-						truyen: 4561					
-					},
-					
-					success : function(data){
-						if($.trim(data)!='no_result'){
-						location.href=data;
-						}else{
-							alert('Chương Không tồn tại, xin vui lòng kiểm tra lại');
-						}
-							
-				
-					}
-				});
-			
-			
-		});
-		//Fchuong click
-		  })
-		  </script>
-						{/literal}
 						<div id="wrap_chuong_table">
 							<div id="chuong_table">
 								<table id="table_data" class="footable table  table-striped">
@@ -408,7 +246,7 @@ $('.item_truyen_detail .viewmore').live('click', function(e){
 									<tbody>
 										{foreach $arr_chapters as $chapter}
 										<tr>
-											<td><a href="{$base_url}{$chapter->id}"
+											<td><a href="{$base_url}stories/{$story->key}/chapter-{$chapter->id}.html"
 												title="{$chapter->title}"> {$chapter->title}</a></td>
 										</tr>
 										{/foreach}
@@ -560,9 +398,50 @@ $('.item_truyen_detail .viewmore').live('click', function(e){
 	<!-- end row -->
 </div>
 {/block} {block name="javascript"}
+								<script>
+
+</script>
 <script>
 $(document).ready(function(){
+	$('#truyen_detail').click(function (e) {
+	
+	 
+  	e.preventDefault();
+  	
+  	if($(this).find('.active').find('a').attr('href') != '#truyen_noidung'){
+  	  	
+	  	if($('.noidung').height() > 150){
+			$('.noidung').css('height', '140').css('overflow', 'hidden');
+			$('.truyen_thongtin_tab').append('<p id="threedots" style="text-align:center; font-size: 15px;">...</p><p class="viewmore extend">Xem thêm</p>');
+			
+		}
+  }else{
+	$('#threedots').remove();
+	$('.viewmore').remove();
+	$('.noidung').css('height', '');
+  }
+		  
+  	$(this).tab('show');
+  
+});
 
+$('.item_truyen_detail .viewmore').on('click', function(e){
+	if($(this).hasClass('shorten')){
+		$('.noidung').css('height', '140').css('overflow', 'hidden');
+		$(this).addClass('extend');
+		$(this).html('Xem thêm');
+		$(this).removeClass('shorten');
+		$('#threedots').html('...');
+		window.scroll(0,findPos(document.getElementById("truyen_detail")) - 50);
+		
+	}else{
+		$('.noidung').css('height', 'auto');
+		$(this).addClass('shorten');
+		$(this).html('Rút gọn');
+		$(this).removeClass('extend');
+		$('#threedots').html('');
+	}
+});
 
 });
 </script>

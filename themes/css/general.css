@@ -171,7 +171,7 @@
 #menu-search{background: #4bc1c0; color: #fff; border-radius: 3px; padding: 7px; margin-top: 8px; cursor: pointer;}
 #s2id_menu-search-box{width: 100% !important; }
 .item_truyen_detail{margin-top: 5px;}
-.item_truyen_detail .noidung{height: 210px; overflow: hidden;}
+.item_truyen_detail .noidung{height: 305px; overflow-y: scroll;}
 .item_truyen_detail .viewmore{text-align: center; font-size: 11px; padding: 3px; border-radius: 3px; cursor: pointer; background: #eee; width: 80px; margin: 0px auto;}
 button.close{padding: 0px; font-size: 34px;}
 #toBottom{position: fixed; z-index: 99999; right: 55px; bottom: 12px; width: 38px; height: 38px; background:url(../../images/toBottom.png) top left no-repeat;}

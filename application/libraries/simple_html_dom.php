@@ -85,6 +85,19 @@ function file_get_html($url, $use_include_path = false, $context=null, $offset =
 	return $dom;
 }
 
+function parser_content_to_html($contents, $lowercase = true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT) {
+	if (empty($contents) || strlen($contents) > MAX_FILE_SIZE)
+	{
+		return false;
+	}
+	// We DO force the tags to be terminated.
+	$dom = new simple_html_dom(null, $lowercase, $forceTagsClosed, $target_charset, $stripRN, $defaultBRText, $defaultSpanText);
+	// The second parameter can force the selectors to all be lowercase.
+	$dom->load($contents, $lowercase, $stripRN);
+	
+	return $dom;
+}
+
 // get html dom from string
 function str_get_html($str, $lowercase=true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT)
 {

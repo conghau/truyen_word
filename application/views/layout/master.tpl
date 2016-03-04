@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="{$fixed_base_url}css/reset.css">
 <link rel="stylesheet" href="{$fixed_base_url}css/style.css">
 <link rel="stylesheet" href="{$fixed_base_url}css/bootstrap.min.css">
+<link rel="stylesheet" href="{$fixed_base_url}css/font-awesome.min.css">
 <link rel="stylesheet" href="{$fixed_base_url}css/theme2.css">
 <link rel="stylesheet" href="{$fixed_base_url}css/general.css">
 <link rel="stylesheet"
@@ -103,23 +104,10 @@
 				</div>
 			</div>
 			<div class="col-md-9 col-xs-6">
-				<a href="http://ghengoibet.vn/gioi-thieu-san-pham-ghe-ngoi-bet"
-					target="_blank" title="ghế ngồi bệt, ghế ngồi bệt đa năng"> <img
-					src="http://image.manga24h.com/upload/images/2014/10/03/manga24h-ghe-ngoi-bet-tatami-ori.jpg"
-					class="img-responsive">
-				</a>
-
+				
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<blockquote
-			style="border-left: 2px solid #00F; background-color: #FFF; font-size: 16px; font-weight: bold; margin-bottom: 10px; max-width: 1080px; margin: auto">
-			<a href="http://ghengoibet.vn/gioi-thieu-san-pham-ghe-ngoi-bet"
-				target="_blank">[Ghengoibet.vn] Ghế ngồi bệt nhật bản - Đọc truyện,
-				làm việc, thư giãn ... cực kỳ thoải mái, khỏi lo đau lưng , mỏi cổ</a>
-		</blockquote>
-
-
 	</div>
 	<section class="container">{block name=body}{/block}</section>
 	<div class="clearfix"></div>
@@ -171,10 +159,6 @@
 				href="http://www.onlineonepiece.com/" target="_blank">Đọc Truyện One
 				Piece</a>
 			<div style="margin-bottom: 5px;"></div>
-
-
-
-
 		</div>
 	</div>
 	{block name=javascript}{/block}

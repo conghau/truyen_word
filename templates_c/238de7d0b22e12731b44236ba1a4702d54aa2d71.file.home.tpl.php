@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-12 12:04:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-05-21 11:40:26
          compiled from "D:\xampp\htdocs\truyen_word\application\modules\stories\views\home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:170305551983cb11988-38106229%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '238de7d0b22e12731b44236ba1a4702d54aa2d71' => 
     array (
       0 => 'D:\\xampp\\htdocs\\truyen_word\\application\\modules\\stories\\views\\home.tpl',
-      1 => 1431425044,
+      1 => 1431492946,
       2 => 'file',
     ),
     '14cdf02e13527449d96e523ec9ad4adbaec9255b' => 

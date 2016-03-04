@@ -32,4 +32,19 @@ class Chapterdao extends MY_Model {
 		$this->db_params = $db_params;
 		parent::__construct($this->table);
 	}
+	
+	function get_last_chapter($story_id)
+	{
+		$sql = <<<SQL
+SELECT id,title FROM $this->table WHERE stories_id = ? ORDER BY id DESC LIMIT 1
+SQL;
+		$result = $this->db->query($sql, $story_id)->row();
+		return $result;
+	}
+	
+	function get_list_chapter($where_condition = NULL, $limit = NULL, $offset = 0, $select = '*')
+	{
+		$this->db->select($select);
+		return $this->db->get_where($this->table, $where_condition, $limit, $offset)->result();
+	}
 }
